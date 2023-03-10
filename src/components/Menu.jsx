@@ -1,13 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import {AiFillHome} from 'react-icons/ai'
+import {MdLightMode,MdExplore,MdSubscriptions,MdHelp,MdVideoLibrary,MdHistory,MdSupport,MdQueueMusic,MdSportsBasketball,MdVideogameAsset,MdMovie,MdNewspaper,MdLiveTv,MdSettingsApplications} from 'react-icons/md'
 
 
 const Container=styled.div`
     flex: 1;
-    background-color: #202020;
-    color: slategray;
+    background-color: ${({theme})=>theme.bg};
+    color: ${({theme})=>theme.text};
     height: 100vh;
+    position: sticky;
+    top: 0;
 `
 const Wrapper=styled.div`
     padding: 20px;
@@ -28,9 +31,26 @@ const Item=styled.div`
     align-items: center;
     gap: 20px;
     cursor: pointer;
-    font-size: 20px;
+    padding: 1px 0px;
 `
-const Menu = () => {
+const Hr=styled.hr`
+    margin: 15px 0px;
+    border: 0.5px solid ${({theme})=>theme.soft};
+`
+const Login=styled.div`
+    
+`
+const Button=styled.button`
+    padding: 5px 15px;
+    background-color: transparent;
+    border: 1px solid blue;
+    color: blue;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 500;
+`
+const Menu = ({darkmode,setDarkmode}) => {
   return (
     <Container>
         <Wrapper>
@@ -42,6 +62,70 @@ const Menu = () => {
             <Item>
              <AiFillHome/>
              Home
+            </Item>
+            <Item>
+             <MdExplore/>
+             Explore
+            </Item>
+            <Item>
+             <MdSubscriptions/>
+             Subscriptions
+            </Item>
+            <Hr/>
+            <Item>
+             <MdVideoLibrary/>
+             Library
+            </Item>
+            <Item>
+             <MdHistory/>
+             History
+            </Item>
+            <Hr/>
+            <Login>
+                Sign in to like videos, comment, and subscribe.
+                <Button>Sign In</Button>
+            </Login>
+            <Hr/>
+            <Item>
+             <MdQueueMusic/>
+             Music
+            </Item>
+            <Item>
+             <MdSportsBasketball/>
+             Sports
+            </Item>
+            <Item>
+             <MdVideogameAsset/>
+             Gaming
+            </Item>
+            <Item>
+             <MdMovie/>
+             Movie
+            </Item>
+            <Item>
+             <MdNewspaper/>
+             News
+            </Item>
+            <Item>
+             <MdLiveTv/>
+             Live
+            </Item>
+            <Hr/>
+            <Item>
+             <MdSettingsApplications/>
+             Settings
+            </Item>
+            <Item>
+             <MdSupport/>
+             Support
+            </Item>
+            <Item>
+             <MdHelp/>
+             Help
+            </Item>
+            <Item onClick={()=>setDarkmode(!darkmode)}>
+                <MdLightMode/>
+                Light Mode
             </Item>
         </Wrapper>
     </Container>
